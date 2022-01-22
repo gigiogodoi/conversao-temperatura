@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: meureplicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      version: v1
+  template:
+    metadata:
+      labels:
+        version: v1
+    spec:
+      containers:
+      - name: web-app
+        image: ggodoi1986/conversao-temperatura:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:  
+          - containerPort: 8080
