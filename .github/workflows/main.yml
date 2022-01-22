@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,3 +28,9 @@ jobs:
           tags: |
             ggodoi1986/conversao-temperatura:latest
             ggodoi1986/conversao-temperatura:v${{ github.run_number }}
+  CD:
+    needs: [CI]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
