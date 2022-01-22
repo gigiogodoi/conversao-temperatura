@@ -27,4 +27,4 @@ jobs:
           push: true
           tags: |
             ggodoi1986/conversao-temperatura:latest
-            ggodoi1986/conversao-temperatura:${{ github.run_number }}
+            ggodoi1986/conversao-temperatura:v${{ github.run_number }}
